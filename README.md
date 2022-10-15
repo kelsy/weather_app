@@ -20,7 +20,7 @@ $ rails db:migrate
 ## Running tests
 
 ```
-$ rails test
+$ bundle exec rspec
 ```
 
 ## Deployment instructions
