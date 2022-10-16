@@ -2,6 +2,6 @@
 
 class HomeController < ApplicationController
   def index
-    @data = WeatherService.new(latitude: "45.6280", longitude: "-122.6739").call
+    @weather = WeatherService.new(latitude: "45.6280", longitude: "-122.6739").call
   end
 end

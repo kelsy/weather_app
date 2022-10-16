@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 require 'net/http'
-# require 'uri'
 
 class WeatherService
   API_KEY = ENV["open_weather_api_key"]
@@ -15,9 +14,12 @@ class WeatherService
   def call
     response = Net::HTTP.get_response(uri)
   
-    puts response.inspect
     # if response.is_a?(Net::HTTPSuccess)
-      @data = JSON.parse(response.body)
+      data = JSON.parse(response.body)
+      weather = {
+        temperature: data["main"]["temp"].to_i,
+        status: data["weather"].first["main"].downcase
+      }
     # else
       # We should fall back to something if the API is down
       # @data = {}
