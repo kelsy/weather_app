@@ -1,2 +1,7 @@
 <p>Hello, Weather app!</p>
-It is currently <%= @weather[:temperature] %>° F and <%= @weather[:status] %> in <%= @location[:postal_code] %>.
+
+<%= form_with(url: "/search", method: "get") do %>
+  <%= label_tag(:query, "Get the current weather:") %>
+  <%= text_field_tag(:query) %>
+  <%= submit_tag("Search") %>
+<% end %>
