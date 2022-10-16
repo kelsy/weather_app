@@ -17,6 +17,17 @@ $ bundle install
 $ rails db:migrate
 ```
 
+You will also need a free API key from [Open Weather](https://openweathermap.org/).
+Once you sign up for the API key, run:
+```
+bundle exec figaro install
+```
+
+And then add this line to your `config/application.yml` file where `"API_KEY"` is your own key:
+```
+open_weather_api_key: "API_KEY"
+```
+
 ## Running tests
 
 ```
@@ -24,5 +35,8 @@ $ bundle exec rspec
 ```
 
 ## Deployment instructions
+Any deployment environment will need an `ENV["open_weather_api_key"]` variable set with your Open Weather API key. To set this variable on heroku, run this command with your API key in place of `API_KEY`:
 
-TBD
+```
+heroku config:set open_weather_api_key=API_KEY
+```
