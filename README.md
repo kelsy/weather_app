@@ -1,10 +1,11 @@
 # Weather App
 
-This weather app curretly:
-* Accepts any address as input (:heavy_check_mark:)
-* Retrieves & displays the current temperature for the given address (:heavy_check_mark:)
-* Caches forecast details by postal code for 30 minutes if postal code available (:heavy_check_mark:)
-* Displays when the postal code's weather data was last fetched (:heavy_check_mark:)
+This weather app currently:
+* Retrieves & displays the current temperature for any given address
+* Caches weather data by postal code for 30 minutes if postal code is available for the location
+* Displays when the postal code's weather data was last fetched
+
+:sparkles: Test it out live on [Heroku](https://vast-forest-92948.herokuapp.com/).
 
 ## Setup
 
@@ -43,3 +44,4 @@ heroku run rails db:migrate
 ## Future Updates
 * Use Redis for caching and add caching to the Location lookup as well. For the sake of simplicity and the initial functionality, leaving Redis out of the stack.
 * Persist the last several weather lookups in the UI
+* Offer alternate geocoder results for fuzzy addresses ("Did you mean?")
