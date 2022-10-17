@@ -8,12 +8,16 @@ class LocationService
   def call
     results = Geocoder.search(query)
     result = results.first
-
-    {
-      latitude: result.latitude,
-      longitude: result.longitude,
-      postal_code: result.postal_code
-    }
+    if result.present?
+      {
+        latitude: result.latitude,
+        longitude: result.longitude,
+        postal_code: result.postal_code,
+        country_code: result.country_code
+      }
+    else
+      {}
+    end
   end
 
   private

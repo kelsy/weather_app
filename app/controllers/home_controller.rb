@@ -6,6 +6,12 @@ class HomeController < ApplicationController
 
   def search
     @location = LocationService.new(query: params[:query]).call
-    @weather = WeatherService.new(latitude: @location[:latitude], longitude: @location[:longitude]).call
+    @weather = if @location.present?
+      WeatherService.new(latitude: @location[:latitude], longitude: @location[:longitude], postal_code: @location[:postal_code], country_code: @location[:country_code]).call
+    else
+      {
+        status: "error"
+      }
+    end
   end
 end

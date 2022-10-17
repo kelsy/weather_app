@@ -1,2 +1,11 @@
 <p>Hello, Weather app!</p>
-It is currently <%= @weather[:temperature] %>° F and <%= @weather[:status] %> in <%= @location[:postal_code] %>.
+
+<% unless @weather[:status] == "error" %>
+  It is currently <%= @weather[:current_temperature] %>° F and <%= @weather[:weather_description] %>.
+
+  <% if @location[:postal_code].present? %>
+    <p>Weather data for <%= @location[:postal_code] %> last fetched <%= time_ago_in_words(@weather[:updated_at]) %> ago.</p>
+  <% end %>
+<% else %>
+  Could not fetch weather right now, please try again later. :(
+<% end %>

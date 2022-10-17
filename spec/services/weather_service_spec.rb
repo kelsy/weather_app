@@ -8,11 +8,21 @@ RSpec.describe WeatherService do
   }
 
   describe "#call" do
+    let(:weather_data) {
+      {
+        
+        current_temperature: 75, 
+        feels_like: 74, 
+        icon_name: "01n", 
+        updated_at: nil, 
+        weather_description: "clear sky"
+      }
+    }
     it "returns weather data given a latitude and longitude" do
       expect_any_instance_of(Net::HTTP).to receive(:request).at_least(:once) { response }
       expect(response).to receive(:body).at_least(:once) { data }
 
-      expect(WeatherService.new(latitude: "45.628", longitude: "-122.6739").call).to eq({temperature: 75.33, status: "Clear"})
+      expect(WeatherService.new(latitude: "45.628", longitude: "-122.6739", postal_code: nil, country_code: nil).call).to eq(weather_data)
     end
   end
 end

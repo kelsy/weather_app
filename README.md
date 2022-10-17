@@ -1,12 +1,11 @@
 # Weather App
 
 This weather app will:
-* Accept an address as input (TODO)
-* Retrieve forecast data for the given address (TODO)
-* Display the current temperature (TODO)
-* (Optional) Display high/low, extended forecast (TODO)
-* Cache forecast details by zipcode for 30 minutes (TODO)
-* Display indicator if it is using cached data (TODO)
+* Accept an address as input (:heavy_check_mark:)
+* Retrieve forecast data for the given address (:heavy_check_mark:)
+* Display the current temperature (:heavy_check_mark:)
+* Cache forecast details by zipcode for 30 minutes (:heavy_check_mark:)
+* Display indicator if it is using cached data (:heavy_check_mark:)
 
 ## Setup
 
@@ -40,3 +39,7 @@ Any deployment environment will need an `ENV["open_weather_api_key"]` variable s
 ```
 heroku config:set open_weather_api_key=API_KEY
 ```
+
+## Future Updates
+* Use Redis for caching and add caching to the Location lookup as well. For the sake of simplicity and the initial functionality, leaving Redis out of the stack.
+* Persist the last several weather lookups in the UI
