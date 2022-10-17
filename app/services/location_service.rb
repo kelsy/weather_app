@@ -13,7 +13,9 @@ class LocationService
         latitude: result.latitude,
         longitude: result.longitude,
         postal_code: result.postal_code,
-        country_code: result.country_code
+        country_code: result.country_code,
+        country: result.country,
+        display_name: result.display_name
       }
     else
       {}

@@ -12,7 +12,9 @@
     <p class="fs-3 text"><%= @weather[:weather_description] %></p>
 
     <% if @location[:postal_code].present? %>
-      <p><em>Weather data for <%= @location[:postal_code] %> last fetched <%= time_ago_in_words(@weather[:updated_at]) %> ago.</em></p>
+      <p><em>Weather data for <%= @location[:postal_code] %> (<%= @location[:country] %>) last fetched <%= time_ago_in_words(@weather[:updated_at]) %> ago.</em></p>
+    <% else %>
+      <p><em>Displaying weather data for <%= @location[:display_name] %> (<%= @location[:latitude] %>, <%= @location[:longitude] %>).</em></p>
     <% end %>
   <% end %>
 
