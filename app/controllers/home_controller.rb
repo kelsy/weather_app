@@ -10,7 +10,7 @@ class HomeController < ApplicationController
       WeatherService.new(latitude: @location[:latitude], longitude: @location[:longitude], postal_code: @location[:postal_code], country_code: @location[:country_code]).call
     else
       {
-        status: "error"
+        status: "not_found"
       }
     end
   end

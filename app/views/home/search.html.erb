@@ -1,11 +1,20 @@
-<p>Hello, Weather app!</p>
+<div class="container-sm text-center border mt-4 p-4">
 
-<% unless @weather[:status] == "error" %>
-  It is currently <%= @weather[:current_temperature] %>° F and <%= @weather[:weather_description] %>.
+  <% if @weather[:status] == "error" %>
+    <p>Could not fetch weather right now, please try again later. :(</p>
+  <% elsif @weather[:status] == "not_found" %>
+    <p>Could not find location</p>
+    <p><%= params[:query] %></p>
+  <% else %>
+    <p>Current weather for: <%= params[:query] %></p>
 
-  <% if @location[:postal_code].present? %>
-    <p>Weather data for <%= @location[:postal_code] %> last fetched <%= time_ago_in_words(@weather[:updated_at]) %> ago.</p>
+    <h2><%= @weather[:current_temperature] %>° F</h2>
+    <p class="fs-3 text"><%= @weather[:weather_description] %></p>
+
+    <% if @location[:postal_code].present? %>
+      <p><em>Weather data for <%= @location[:postal_code] %> last fetched <%= time_ago_in_words(@weather[:updated_at]) %> ago.</em></p>
+    <% end %>
   <% end %>
-<% else %>
-  Could not fetch weather right now, please try again later. :(
-<% end %>
+
+  <%= link_to "Search Again", root_path, class: "btn btn-primary" %>
+</div>

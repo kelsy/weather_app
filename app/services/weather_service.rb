@@ -36,6 +36,7 @@ class WeatherService
           weather_description: weather_details["description"].downcase,
           icon_name: weather_details["icon"]
         )
+        weather.reload
       else
         WeatherByPostalCode.create(
           postal_code: postal_code,

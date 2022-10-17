@@ -1,11 +1,10 @@
 # Weather App
 
-This weather app will:
-* Accept an address as input (:heavy_check_mark:)
-* Retrieve forecast data for the given address (:heavy_check_mark:)
-* Display the current temperature (:heavy_check_mark:)
-* Cache forecast details by zipcode for 30 minutes (:heavy_check_mark:)
-* Display indicator if it is using cached data (:heavy_check_mark:)
+This weather app curretly:
+* Accepts any address as input (:heavy_check_mark:)
+* Retrieves & displays the current temperature for the given address (:heavy_check_mark:)
+* Caches forecast details by postal code for 30 minutes if postal code available (:heavy_check_mark:)
+* Displays when the postal code's weather data was last fetched (:heavy_check_mark:)
 
 ## Setup
 
@@ -38,6 +37,7 @@ Any deployment environment will need an `ENV["open_weather_api_key"]` variable s
 
 ```
 heroku config:set open_weather_api_key=API_KEY
+heroku run rails db:migrate
 ```
 
 ## Future Updates
